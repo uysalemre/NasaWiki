@@ -32,11 +32,19 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+kapt {
+    correctErrorTypes true
 }
 
 dependencies {
     def nav_version = "2.3.5"
-    def room_version = "2.2.4"
+    def room_version = "2.3.0"
     def hilt_version = "2.38.1"
 
     // kotlin
