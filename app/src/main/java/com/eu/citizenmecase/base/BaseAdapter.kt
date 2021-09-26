@@ -15,7 +15,12 @@ abstract class BaseAdapter<T : Model, VB : ViewDataBinding>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<VB> {
         val binding: VB =
-            DataBindingUtil.inflate(LayoutInflater.from(parent.context), layoutId, parent, false)
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                layoutId,
+                parent,
+                false
+            )
         return BaseViewHolder(binding)
     }
 

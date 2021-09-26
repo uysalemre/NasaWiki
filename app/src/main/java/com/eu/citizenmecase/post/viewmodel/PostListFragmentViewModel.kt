@@ -18,6 +18,9 @@ class PostListFragmentViewModel @Inject constructor(private val repository: Post
     private val _posts: MutableLiveData<NetworkResult<List<PostModel>>> = MutableLiveData()
     val posts: LiveData<NetworkResult<List<PostModel>>> get() = _posts
 
+    private val _isItemExits: MutableLiveData<Boolean> = MutableLiveData(true)
+    val isItemExists: LiveData<Boolean> get() = _isItemExits
+
     init {
         fetchPosts()
     }
@@ -28,5 +31,9 @@ class PostListFragmentViewModel @Inject constructor(private val repository: Post
                 _posts.postValue(it)
             }
         }
+    }
+
+    fun updateItemExists(isExists: Boolean) {
+        _isItemExits.value = isExists
     }
 }

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/photoListFragment"
         android:name="com.eu.citizenmecase.post.view.PostListFragment"
-        android:label="PhotoListFragment"
+        android:label="Posts"
         tools:layout="@layout/fragment_post">
         <action
             android:id="@+id/action_photoListFragment_to_photoDetailFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/photoDetailFragment"
         android:name="com.eu.citizenmecase.post.view.PostDetailFragment"
-        android:label="PhotoDetailFragment"
+        android:label="Post Detail"
         tools:layout="@layout/fragment_post_detail">
         <action
             android:id="@+id/action_photoDetailFragment_to_photoListFragment"
@@ -29,6 +29,10 @@
             android:name="postId"
             android:defaultValue="-1L"
             app:argType="long" />
+        <argument
+            android:name="body"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
 
 </navigation>

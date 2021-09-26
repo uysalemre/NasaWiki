@@ -19,7 +19,7 @@
 
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -51,7 +51,7 @@
                 tools:text="Title for Photo List Test" />
 
             <TextView
-                android:id="@+id/tvBody"
+                android:id="@+id/cvPageBody"
                 style="@style/BodyItemText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -64,5 +64,5 @@
                 tools:text="@string/sample_long_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
