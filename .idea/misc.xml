@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/bottom_sheet_comments.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_photo_detail.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_photo_list.xml" value="0.2907692307692308" />
+        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_comment_list.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_photo_list.xml" value="0.2536877262400351" />
       </map>
