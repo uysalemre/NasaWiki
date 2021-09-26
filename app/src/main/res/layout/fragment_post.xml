@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="rvAdapter"
+            type="com.eu.citizenmecase.post.view.adapter.PostListAdapter" />
+
+        <variable
+            name="itemClick"
+            type="com.eu.citizenmecase.utils.RecyclerViewItemClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,11 +22,13 @@
             android:id="@+id/rvPhotos"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:adapter="@{rvAdapter}"
+            app:itemClickListener="@{itemClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="@{2}"
             tools:listitem="@layout/item_post_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
