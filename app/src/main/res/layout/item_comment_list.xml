@@ -14,25 +14,15 @@
             type="String" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         style="@style/Card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvCommentName"
-                style="@style/BodyText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@{name}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Emre UYSAL" />
 
             <TextView
                 android:id="@+id/tvCommentBody"
@@ -42,8 +32,18 @@
                 android:text="@{body}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCommentName"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/sample_long_text" />
+
+            <TextView
+                android:id="@+id/tvCommentName"
+                style="@style/BodyText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCommentBody"
+                tools:text="Emre UYSAL" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

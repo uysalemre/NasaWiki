@@ -15,7 +15,7 @@ class PostListAdapter(var itemClickListener: RecyclerViewItemClickListener) :
                 title = item.title
                 body = item.body
                 root.setOnClickListener {
-                    itemClickListener.onItemClick(item.id)
+                    itemClickListener.onItemClick(item.id, item.body)
                 }
             }
         })

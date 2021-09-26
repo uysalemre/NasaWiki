@@ -52,5 +52,4 @@ object DataSourceModule {
     @Singleton
     @Provides
     fun providesRepository(apiService: Services) = PostRepository(apiService)
-
 }

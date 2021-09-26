@@ -27,6 +27,7 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
         with(binding) {
             itemClick = this@PostListFragment
             rvAdapter = adapter
+            viewmodel = viewModel
         }
     }
 
@@ -40,15 +41,23 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
                 is NetworkResult.OnUnexpected -> {
                 }
                 is NetworkResult.OnSuccess -> {
-                    adapter.submitList(it.data)
+                    when {
+                        it.data.isNotEmpty() -> {
+                            viewModel.updateItemExists(true)
+                            adapter.submitList(it.data)
+                        }
+                        else -> {
+                            viewModel.updateItemExists(false)
+                        }
+                    }
                 }
             }
         })
     }
 
-    override fun onItemClick(id: Long) {
+    override fun onItemClick(id: Long, body: String) {
         val action =
-            PostListFragmentDirections.actionPhotoListFragmentToPhotoDetailFragment(id)
+            PostListFragmentDirections.actionPhotoListFragmentToPhotoDetailFragment(id, body)
         navController.navigate(action)
     }
 

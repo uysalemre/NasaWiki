@@ -14,13 +14,13 @@ class PostRepository @Inject constructor(private val services: Services) {
         emit(safeApiCall { services.getPosts() })
     }.flowOn(Dispatchers.IO)
 
-    fun getComments() = flow {
+    fun getComments(postId: Long) = flow {
         emit(NetworkResult.OnLoading)
-        emit(safeApiCall { services.getComments() })
+        emit(safeApiCall { services.getComments(postId) })
     }.flowOn(Dispatchers.IO)
 
-    fun getPhotos() = flow {
+    fun getPhoto(id: Long) = flow {
         emit(NetworkResult.OnLoading)
-        emit(safeApiCall { services.getPhotos() })
+        emit(safeApiCall { services.getPhoto(id) })
     }.flowOn(Dispatchers.IO)
 }
