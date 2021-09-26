@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/photoListFragment">
+
+    <fragment
+        android:id="@+id/photoListFragment"
+        android:name="com.eu.citizenmecase.post.view.PostListFragment"
+        android:label="PhotoListFragment"
+        tools:layout="@layout/fragment_post">
+        <action
+            android:id="@+id/action_photoListFragment_to_photoDetailFragment"
+            app:destination="@id/photoDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/photoDetailFragment"
+        android:name="com.eu.citizenmecase.post.view.PostDetailFragment"
+        android:label="PhotoDetailFragment"
+        tools:layout="@layout/fragment_post_detail">
+        <action
+            android:id="@+id/action_photoDetailFragment_to_photoListFragment"
+            app:destination="@id/photoListFragment"
+            app:popUpTo="@id/photoListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>

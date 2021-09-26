@@ -1,11 +1,28 @@
 {
   "posts": [
     {
+      "userId": 1,
       "id": 1,
-      "title": "hello"
+      "title": "",
+      "body": "",
+      "thumbnailUrl": ""
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "comments": [
+    {
+      "postId": 1,
+      "id": 2,
+      "name": "",
+      "email": "",
+      "body": ""
+    }
+  ],
+  "photos": [
+    {
+      "albumId": 1,
+      "id": 1,
+      "title": "",
+      "url": ""
+    }
+  ]
 }
