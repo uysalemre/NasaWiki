@@ -1,13 +1,13 @@
 package com.eu.citizenmecase.post.view
 
-import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseFragment
 import com.eu.citizenmecase.databinding.FragmentPostBinding
 import com.eu.citizenmecase.post.view.adapter.PostListAdapter
 import com.eu.citizenmecase.post.viewmodel.PostListFragmentViewModel
-import com.eu.citizenmecase.utils.RecyclerViewItemClickListener
 import com.eu.citizenmecase.utils.network.NetworkResult
+import com.eu.citizenmecase.utils.ui.RecyclerViewItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +15,7 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
     RecyclerViewItemClickListener {
 
     private lateinit var adapter: PostListAdapter
-    private val viewModel: PostListFragmentViewModel by viewModels()
+    private val viewModel: PostListFragmentViewModel by hiltNavGraphViewModels(R.id.nav_graph)
 
     override fun onViewCreationCompleted() {
         initializeView()
@@ -34,13 +34,12 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
     private fun initializeObserver() {
         viewModel.posts.observe(viewLifecycleOwner, {
             when (it) {
-                is NetworkResult.OnLoading -> {
-                }
-                is NetworkResult.OnFailure -> {
-                }
+                is NetworkResult.OnLoading -> showLoading()
                 is NetworkResult.OnUnexpected -> {
+                    hideLoading()
                 }
                 is NetworkResult.OnSuccess -> {
+                    hideLoading()
                     when {
                         it.data.isNotEmpty() -> {
                             viewModel.updateItemExists(true)

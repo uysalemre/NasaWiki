@@ -1,6 +1,6 @@
 package com.eu.citizenmecase.post.view
 
-import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.navArgs
 import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseFragment
@@ -9,12 +9,15 @@ import com.eu.citizenmecase.post.view.adapter.CommentListAdapter
 import com.eu.citizenmecase.post.viewmodel.PostDetailFragmentViewModel
 import com.eu.citizenmecase.utils.network.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class PostDetailFragment :
     BaseFragment<FragmentPostDetailBinding>(R.layout.fragment_post_detail) {
-    private val viewModel: PostDetailFragmentViewModel by viewModels()
-    private lateinit var adapter: CommentListAdapter
+    private val viewModel: PostDetailFragmentViewModel by hiltNavGraphViewModels(R.id.nav_graph)
+
+    @Inject
+    lateinit var adapter: CommentListAdapter
     private val args: PostDetailFragmentArgs by navArgs()
 
     override fun onViewCreationCompleted() {
@@ -24,7 +27,6 @@ class PostDetailFragment :
     }
 
     private fun initializeView() {
-        adapter = CommentListAdapter()
         with(binding) {
             rvAdapter = adapter
             viewmodel = viewModel
@@ -34,13 +36,12 @@ class PostDetailFragment :
     private fun initializeObserver() {
         viewModel.photo.observe(viewLifecycleOwner, {
             when (it) {
-                is NetworkResult.OnLoading -> {
-                }
-                is NetworkResult.OnFailure -> {
-                }
+                is NetworkResult.OnLoading -> showLoading()
                 is NetworkResult.OnUnexpected -> {
+                    hideLoading()
                 }
                 is NetworkResult.OnSuccess -> {
+                    hideLoading()
                     viewModel.setImageUrl(it.data[0].url)
                     viewModel.setTitle(it.data[0].title)
                 }
@@ -49,13 +50,12 @@ class PostDetailFragment :
 
         viewModel.comment.observe(viewLifecycleOwner, {
             when (it) {
-                is NetworkResult.OnLoading -> {
-                }
-                is NetworkResult.OnFailure -> {
-                }
+                is NetworkResult.OnLoading -> showLoading()
                 is NetworkResult.OnUnexpected -> {
+                    hideLoading()
                 }
                 is NetworkResult.OnSuccess -> {
+                    hideLoading()
                     if (it.data.isNullOrEmpty()) {
                         viewModel.setIsCommentExists(false)
                     } else {

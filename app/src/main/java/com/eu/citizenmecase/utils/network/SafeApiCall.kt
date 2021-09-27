@@ -11,8 +11,12 @@ suspend fun <T> safeApiCall(
         NetworkResult.OnSuccess(apiCall())
     } catch (throwable: Throwable) {
         when (throwable) {
-            is IOException -> NetworkResult.OnUnexpected(R.string.err_http_internet)
-            is HttpException -> NetworkResult.OnFailure
+            is IOException -> NetworkResult.OnUnexpected(
+                R.string.err_http_internet
+            )
+            is HttpException -> NetworkResult.OnUnexpected(
+                R.string.err_http_unknown
+            )
             else -> NetworkResult.OnUnexpected(R.string.err_http_unknown)
         }
     }

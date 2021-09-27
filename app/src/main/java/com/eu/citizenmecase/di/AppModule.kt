@@ -1,11 +1,15 @@
 package com.eu.citizenmecase.di
 
+import android.content.Context
+import androidx.room.Room
 import com.eu.citizenmecase.BuildConfig
 import com.eu.citizenmecase.post.repository.PostRepository
 import com.eu.citizenmecase.post.repository.remote.Services
+import com.eu.citizenmecase.utils.db.AppDb
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,7 +20,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataSourceModule {
+object AppModule {
     private const val BASE_URL = "https://my-json-server.typicode.com/uysalemre/CitizenMeCaseApp/"
 
     @Provides
@@ -51,5 +55,6 @@ object DataSourceModule {
 
     @Singleton
     @Provides
-    fun providesRepository(apiService: Services) = PostRepository(apiService)
+    fun providesAppDatabase(@ApplicationContext context: Context) =
+        Room.databaseBuilder(context, AppDb::class.java, "case_app_db").build()
 }

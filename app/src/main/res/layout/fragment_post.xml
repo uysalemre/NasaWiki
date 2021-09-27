@@ -15,7 +15,7 @@
 
         <variable
             name="itemClick"
-            type="com.eu.citizenmecase.utils.RecyclerViewItemClickListener" />
+            type="com.eu.citizenmecase.utils.ui.RecyclerViewItemClickListener" />
 
         <import type="android.view.View" />
     </data>
