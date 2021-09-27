@@ -1,4 +1,4 @@
-package com.eu.citizenmecase.utils
+package com.eu.citizenmecase.utils.ui
 
 interface RecyclerViewItemClickListener {
     fun onItemClick(id: Long, body: String)

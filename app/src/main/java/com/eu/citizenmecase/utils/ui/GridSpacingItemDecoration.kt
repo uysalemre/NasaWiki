@@ -1,4 +1,4 @@
-package com.eu.citizenmecase.utils
+package com.eu.citizenmecase.utils.ui
 
 import android.graphics.Rect
 import android.view.View

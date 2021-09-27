@@ -23,6 +23,6 @@ data class PhotoModel(
     override val id: Long
 ) : Model
 
-interface Model {
+sealed interface Model {
     val id: Long
 }

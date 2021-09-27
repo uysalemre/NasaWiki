@@ -44,7 +44,7 @@ kapt {
 
 dependencies {
     def nav_version = "2.3.5"
-    def room_version = "2.3.0"
+    def room_version = "2.4.0-alpha04"
     def hilt_version = "2.38.1"
 
     // kotlin
@@ -74,6 +74,7 @@ dependencies {
     // dependency injection
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
     // arch
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'

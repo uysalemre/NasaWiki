@@ -4,8 +4,11 @@ import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseAdapter
 import com.eu.citizenmecase.databinding.ItemCommentListBinding
 import com.eu.citizenmecase.post.repository.remote.CommentModel
+import dagger.hilt.android.scopes.FragmentScoped
+import javax.inject.Inject
 
-class CommentListAdapter :
+@FragmentScoped
+class CommentListAdapter @Inject constructor() :
     BaseAdapter<CommentModel, ItemCommentListBinding>(
         R.layout.item_comment_list,
         { item, holder ->

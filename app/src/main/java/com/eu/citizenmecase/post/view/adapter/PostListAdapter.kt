@@ -4,7 +4,7 @@ import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseAdapter
 import com.eu.citizenmecase.databinding.ItemPostListBinding
 import com.eu.citizenmecase.post.repository.remote.PostModel
-import com.eu.citizenmecase.utils.RecyclerViewItemClickListener
+import com.eu.citizenmecase.utils.ui.RecyclerViewItemClickListener
 
 class PostListAdapter(var itemClickListener: RecyclerViewItemClickListener) :
     BaseAdapter<PostModel, ItemPostListBinding>(

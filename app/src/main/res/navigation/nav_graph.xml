@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_post">
         <action
             android:id="@+id/action_photoListFragment_to_photoDetailFragment"
-            app:destination="@id/photoDetailFragment" />
+            app:destination="@id/photoDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -24,7 +28,7 @@
             android:id="@+id/action_photoDetailFragment_to_photoListFragment"
             app:destination="@id/photoListFragment"
             app:popUpTo="@id/photoListFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <argument
             android:name="postId"
             android:defaultValue="-1L"

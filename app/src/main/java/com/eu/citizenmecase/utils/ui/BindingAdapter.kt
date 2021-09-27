@@ -1,4 +1,4 @@
-package com.eu.citizenmecase.utils
+package com.eu.citizenmecase.utils.ui
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -19,8 +19,8 @@ fun loadImage(view: ImageView, url: String?) {
     // todo change placeholder later
     Glide.with(view.context)
         .load(url)
+        .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
         .placeholder(R.drawable.ic_launcher_background)
-        .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(view)
 }
 

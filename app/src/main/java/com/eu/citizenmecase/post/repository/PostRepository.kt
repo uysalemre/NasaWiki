@@ -1,6 +1,8 @@
 package com.eu.citizenmecase.post.repository
 
 import com.eu.citizenmecase.post.repository.remote.Services
+import com.eu.citizenmecase.utils.db.AppDb
+import com.eu.citizenmecase.utils.ext.convertToList
 import com.eu.citizenmecase.utils.network.NetworkResult
 import com.eu.citizenmecase.utils.network.safeApiCall
 import kotlinx.coroutines.Dispatchers
@@ -8,19 +10,42 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class PostRepository @Inject constructor(private val services: Services) {
-    fun getPosts() = flow {
-        emit(NetworkResult.OnLoading)
-        emit(safeApiCall { services.getPosts() })
-    }.flowOn(Dispatchers.IO)
+class PostRepository @Inject constructor(private val services: Services, private val db: AppDb) {
 
-    fun getComments(postId: Long) = flow {
-        emit(NetworkResult.OnLoading)
-        emit(safeApiCall { services.getComments(postId) })
-    }.flowOn(Dispatchers.IO)
+    suspend fun getPhoto(id: Long) = getRequestOrCacheResult(
+        { db.getDao().getAllPhotos(id).convertToList() },
+        { data -> db.getDao().insertPhotos(data.convertToList()) },
+        { safeApiCall { services.getPhoto(id) } }
+    )
 
-    fun getPhoto(id: Long) = flow {
-        emit(NetworkResult.OnLoading)
-        emit(safeApiCall { services.getPhoto(id) })
+    suspend fun getPosts() = getRequestOrCacheResult(
+        { db.getDao().getAllPosts().convertToList() },
+        { data -> db.getDao().insertPosts(data.convertToList()) },
+        { safeApiCall { services.getPosts() } }
+    )
+
+    suspend fun getComments(id: Long) = getRequestOrCacheResult(
+        { db.getDao().getAllComments(id).convertToList() },
+        { data -> db.getDao().insertComments(data.convertToList()) },
+        { safeApiCall { services.getComments(id) } }
+    )
+
+    private fun <T> getRequestOrCacheResult(
+        dbCacheQuery: () -> List<T>,
+        dbInsertQuery: (List<T>) -> Unit,
+        netWorkCall: suspend () -> NetworkResult<List<T>>
+    ) = flow {
+        val cache = dbCacheQuery()
+        emit(
+            when {
+                cache.isNotEmpty() -> NetworkResult.OnSuccess(cache)
+                else -> NetworkResult.OnLoading
+            }
+        )
+        val call = netWorkCall()
+        if (call is NetworkResult.OnSuccess<*>) {
+            dbInsertQuery(call.data as List<T>)
+        }
+        emit(call)
     }.flowOn(Dispatchers.IO)
 }
