@@ -22,7 +22,7 @@
             android:drawablePadding="4dp"
             android:text="@{@string/err_no_items(pageName)}"
             app:drawableStartCompat="@android:drawable/ic_menu_search"
-            app:drawableTint="@color/black"
+            app:drawableTint="@color/background_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

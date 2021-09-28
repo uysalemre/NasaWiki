@@ -1,5 +1,7 @@
 package com.eu.citizenmecase.utils.ext
 
+import android.content.Context
+import android.content.res.Configuration
 import com.eu.citizenmecase.post.repository.local.CommentEntity
 import com.eu.citizenmecase.post.repository.local.PhotoEntity
 import com.eu.citizenmecase.post.repository.local.PostEntity
@@ -34,3 +36,7 @@ inline fun <reified T, R> List<T>.convertToList(): List<R> = map {
         else -> throw IllegalArgumentException("No Model Like That")
     }
 } as List<R>
+
+
+fun Context.isDarkTheme() =
+    this.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES

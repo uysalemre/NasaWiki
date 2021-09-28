@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.eu.citizenmecase.utils.ext.ExtensionsKt" />
+
         <import type="android.text.TextUtils" />
 
         <import type="android.view.View" />
@@ -30,7 +32,6 @@
         style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:orientation="vertical"
         app:behavior_hideable="false"
         app:behavior_peekHeight="124dp"
@@ -38,14 +39,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@{ExtensionsKt.isDarkTheme(context) ? @color/card_bottom_sheet_dark : @color/card_bottom_sheet_light}">
 
             <View
                 android:id="@+id/viewDragBottomSheet"
                 android:layout_width="36dp"
                 android:layout_height="4dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/gray"
+                android:layout_marginTop="12dp"
+                android:background="@{ExtensionsKt.isDarkTheme(context) ? @color/drag_dark : @color/drag_light}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +56,10 @@
                 android:id="@+id/tvPageTitle"
                 style="@style/TitleText"
                 android:layout_width="0dp"
+                android:maxLines="2"
+                android:layout_margin="8dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="@{titleInfo}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,8 +71,7 @@
                 style="@style/Card"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_marginTop="4dp"
+                android:layout_margin="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPageTitle">
@@ -88,7 +92,7 @@
                 style="@style/TitleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_margin="8dp"
                 android:text="@string/comments"
                 android:visibility="@{isCommentExists ? View.VISIBLE : View.GONE, default = gone}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +103,7 @@
                 android:id="@+id/rvComments"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="8dp"
+                android:layout_margin="4dp"
                 android:visibility="@{isCommentExists ? View.VISIBLE : View.GONE, default = gone}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
