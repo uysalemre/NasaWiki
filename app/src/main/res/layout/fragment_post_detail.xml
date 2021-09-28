@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:loadImage="@{viewmodel.imageUrl}"
-                tools:src="@drawable/ic_launcher_background" />
+                tools:src="@drawable/ic_image_background" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

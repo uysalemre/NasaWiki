@@ -12,20 +12,28 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @author Emre UYSAL
+ * View model class for managing main page content and states
+ */
 @HiltViewModel
 class PostListFragmentViewModel @Inject constructor(private val repository: PostRepository) :
     ViewModel() {
+
     private val _posts: MutableLiveData<NetworkResult<List<PostModel>>> = MutableLiveData()
     val posts: LiveData<NetworkResult<List<PostModel>>> get() = _posts
 
-    private val _isItemExits: MutableLiveData<Boolean> = MutableLiveData(true)
+    private val _isItemExits: MutableLiveData<Boolean> = MutableLiveData()
     val isItemExists: LiveData<Boolean> get() = _isItemExits
+
+    private val _isRefreshing: MutableLiveData<Boolean> = MutableLiveData()
+    val isRefreshing: LiveData<Boolean> get() = _isRefreshing
 
     init {
         fetchPosts()
     }
 
-    fun fetchPosts() {
+    private fun fetchPosts() {
         viewModelScope.launch {
             repository.getPosts().collect {
                 _posts.postValue(it)
@@ -34,6 +42,21 @@ class PostListFragmentViewModel @Inject constructor(private val repository: Post
     }
 
     fun updateItemExists(isExists: Boolean) {
-        _isItemExits.value = isExists
+        viewModelScope.launch {
+            _isItemExits.value = isExists
+        }
+    }
+
+    fun swipeAndRefresh() {
+        viewModelScope.launch {
+            _isRefreshing.value = true
+            fetchPosts()
+        }
+    }
+
+    fun stopRefresh() {
+        viewModelScope.launch {
+            _isRefreshing.value = false
+        }
     }
 }

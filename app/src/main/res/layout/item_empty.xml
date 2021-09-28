@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="There is no posts in here." />
+            tools:text="There are no posts in here." />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

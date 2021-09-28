@@ -4,6 +4,10 @@ import com.eu.citizenmecase.R
 import retrofit2.HttpException
 import java.io.IOException
 
+/**
+ * @author Emre UYSAL
+ * Function that manages network call according to coroutines
+ */
 suspend fun <T> safeApiCall(
     apiCall: suspend () -> T
 ): NetworkResult<T> {

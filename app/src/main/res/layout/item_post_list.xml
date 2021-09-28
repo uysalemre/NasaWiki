@@ -37,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:loadImage="@{imageUrl}"
-                tools:src="@drawable/ic_launcher_background" />
+                tools:src="@drawable/ic_image_background" />
 
             <TextView
                 android:id="@+id/tvTitle"

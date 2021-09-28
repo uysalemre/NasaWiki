@@ -7,6 +7,10 @@ import androidx.databinding.DataBindingUtil
 import com.eu.citizenmecase.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * @author Emre UYSAL
+ * Main activity which is a container for fragments
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         initializeView()
     }
 
-    fun initializeView() = with(binding) {
+    private fun initializeView() = with(binding) {
         lifecycleOwner = this@MainActivity
         viewModel = mainActivityViewModel
     }

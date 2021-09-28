@@ -13,39 +13,43 @@
             name="rvAdapter"
             type="com.eu.citizenmecase.post.view.adapter.PostListAdapter" />
 
-        <variable
-            name="itemClick"
-            type="com.eu.citizenmecase.utils.ui.RecyclerViewItemClickListener" />
-
         <import type="android.view.View" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srlRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:setRefreshStatus="@{viewmodel.isRefreshing}"
+        app:onRefresh="@{()->viewmodel.swipeAndRefresh()}">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvPhotos"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="@{viewmodel.isItemExists ? View.VISIBLE : View.GONE, default = visible}"
-            app:adapter="@{rvAdapter}"
-            app:itemClickListener="@{itemClick}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:spanCount="@{2}"
-            tools:listitem="@layout/item_post_list" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <include
-            layout="@layout/item_empty"
-            android:visibility="@{viewmodel.isItemExists ? View.GONE : View.VISIBLE, default = gone}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:pageName="@{`posts`}" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPhotos"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="@{viewmodel.isItemExists ? View.VISIBLE : View.GONE, default = visible}"
+                app:adapter="@{rvAdapter}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:spanCount="@{2}"
+                tools:listitem="@layout/item_post_list" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                layout="@layout/item_empty"
+                android:visibility="@{viewmodel.isItemExists ? View.GONE : View.VISIBLE, default = gone}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:pageName="@{`posts`}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

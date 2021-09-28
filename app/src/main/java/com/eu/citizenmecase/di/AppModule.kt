@@ -3,7 +3,6 @@ package com.eu.citizenmecase.di
 import android.content.Context
 import androidx.room.Room
 import com.eu.citizenmecase.BuildConfig
-import com.eu.citizenmecase.post.repository.PostRepository
 import com.eu.citizenmecase.post.repository.remote.Services
 import com.eu.citizenmecase.utils.db.AppDb
 import dagger.Module
@@ -18,6 +17,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+
+/**
+ * @author Emre UYSAL
+ * Hilt module that provides network and db related objects, lives until app dies
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

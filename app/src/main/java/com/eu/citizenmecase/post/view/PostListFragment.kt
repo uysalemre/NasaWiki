@@ -1,21 +1,25 @@
 package com.eu.citizenmecase.post.view
 
-import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.fragment.app.viewModels
 import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseFragment
 import com.eu.citizenmecase.databinding.FragmentPostBinding
 import com.eu.citizenmecase.post.view.adapter.PostListAdapter
 import com.eu.citizenmecase.post.viewmodel.PostListFragmentViewModel
 import com.eu.citizenmecase.utils.network.NetworkResult
-import com.eu.citizenmecase.utils.ui.RecyclerViewItemClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+/**
+ * @author Emre UYSAL
+ * Main page fragment that shows posts to user and navigates to detail
+ */
 @AndroidEntryPoint
-class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_post),
-    RecyclerViewItemClickListener {
+class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_post) {
 
-    private lateinit var adapter: PostListAdapter
-    private val viewModel: PostListFragmentViewModel by hiltNavGraphViewModels(R.id.nav_graph)
+    @Inject
+    lateinit var adapter: PostListAdapter
+    private val viewModel: PostListFragmentViewModel by viewModels()
 
     override fun onViewCreationCompleted() {
         initializeView()
@@ -23,9 +27,12 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
     }
 
     private fun initializeView() {
-        adapter = PostListAdapter(this)
+        adapter.itemClick = { id, body ->
+            val action =
+                PostListFragmentDirections.actionPhotoListFragmentToPhotoDetailFragment(id, body)
+            navController.navigate(action)
+        }
         with(binding) {
-            itemClick = this@PostListFragment
             rvAdapter = adapter
             viewmodel = viewModel
         }
@@ -33,6 +40,7 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
 
     private fun initializeObserver() {
         viewModel.posts.observe(viewLifecycleOwner, {
+            viewModel.stopRefresh()
             when (it) {
                 is NetworkResult.OnLoading -> showLoading()
                 is NetworkResult.OnUnexpected -> {
@@ -53,11 +61,4 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
             }
         })
     }
-
-    override fun onItemClick(id: Long, body: String) {
-        val action =
-            PostListFragmentDirections.actionPhotoListFragmentToPhotoDetailFragment(id, body)
-        navController.navigate(action)
-    }
-
 }
