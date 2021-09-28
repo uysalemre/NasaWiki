@@ -37,8 +37,8 @@
             layout="@layout/bottom_sheet_comments"
             app:adapter="@{rvAdapter}"
             app:bodyInfo="@{viewmodel.body}"
-            app:titleInfo="@{viewmodel.title}"
-            app:isCommentExists = "@{viewmodel.isCommentExists}"/>
+            app:isCommentExists="@{viewmodel.isCommentExists}"
+            app:titleInfo="@{viewmodel.title}" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
