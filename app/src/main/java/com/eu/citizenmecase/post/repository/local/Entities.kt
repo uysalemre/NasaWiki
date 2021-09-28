@@ -3,6 +3,10 @@ package com.eu.citizenmecase.post.repository.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * @author Emre UYSAL
+ * Entities that caches network data and represents db tables
+ */
 @Entity
 data class PostEntity(
     val userId: Long,

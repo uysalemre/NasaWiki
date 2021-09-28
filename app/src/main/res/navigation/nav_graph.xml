@@ -28,7 +28,7 @@
             android:id="@+id/action_photoDetailFragment_to_photoListFragment"
             app:destination="@id/photoListFragment"
             app:popUpTo="@id/photoListFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="true" />
         <argument
             android:name="postId"
             android:defaultValue="-1L"

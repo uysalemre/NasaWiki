@@ -5,6 +5,10 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * @author Emre UYSAL
+ * Data access object for entities contains queries for managing data
+ */
 @Dao
 interface Dao {
     @Query("SELECT * FROM PostEntity")

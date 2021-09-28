@@ -1,10 +1,14 @@
-package com.eu.citizenmecase.base
+package com.eu.citizenmecase.utils.ui
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
 import com.eu.citizenmecase.post.repository.remote.Model
 
-class BaseDiffCallback<T : Model> : DiffUtil.ItemCallback<T>() {
+/**
+ * @author Emre UYSAL
+ * Difference calculator class for list adapter
+ */
+class GenericDiffCallback<T : Model> : DiffUtil.ItemCallback<T>() {
     override fun areItemsTheSame(oldItem: T, newItem: T) = oldItem.id == newItem.id
 
     @SuppressLint("DiffUtilEquals")

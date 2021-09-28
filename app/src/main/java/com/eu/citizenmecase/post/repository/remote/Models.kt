@@ -1,5 +1,9 @@
 package com.eu.citizenmecase.post.repository.remote
 
+/**
+ * @author Emre UYSAL
+ * Models that represents network data
+ */
 data class PostModel(
     val userId: Long,
     val title: String,

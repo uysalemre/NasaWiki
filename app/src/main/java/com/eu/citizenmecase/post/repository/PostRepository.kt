@@ -10,6 +10,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
+/**
+ * @author Emre UYSAL
+ * Repository that send network requests and caches them
+ * If a cache exists emits it otherwise creates cache if request is success
+ */
 class PostRepository @Inject constructor(private val services: Services, private val db: AppDb) {
 
     suspend fun getPhoto(id: Long) = getRequestOrCacheResult(
@@ -31,8 +36,8 @@ class PostRepository @Inject constructor(private val services: Services, private
     )
 
     private fun <T> getRequestOrCacheResult(
-        dbCacheQuery: () -> List<T>,
-        dbInsertQuery: (List<T>) -> Unit,
+        dbCacheQuery: suspend () -> List<T>,
+        dbInsertQuery: suspend (List<T>) -> Unit,
         netWorkCall: suspend () -> NetworkResult<List<T>>
     ) = flow {
         val cache = dbCacheQuery()

@@ -7,6 +7,10 @@ import com.eu.citizenmecase.post.repository.remote.CommentModel
 import com.eu.citizenmecase.post.repository.remote.PhotoModel
 import com.eu.citizenmecase.post.repository.remote.PostModel
 
+/**
+ * @author Emre UYSAL
+ * Extension file for adding functionalities to existing structures
+ */
 inline fun <reified T, R> List<T>.convertToList(): List<R> = map {
     when (it) {
         is PostModel -> {

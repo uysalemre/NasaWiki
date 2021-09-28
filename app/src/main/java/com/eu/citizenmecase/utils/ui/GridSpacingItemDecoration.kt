@@ -4,6 +4,10 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * @author https://gist.github.com/liangzhitao/e57df3c3232ee446d464
+ * Item decoration for managing spacing in staggered grid layout
+ */
 class GridSpacingItemDecoration(
     private val spanCount: Int,
     private val spacing: Int,

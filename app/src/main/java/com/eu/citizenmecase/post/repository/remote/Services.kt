@@ -3,6 +3,10 @@ package com.eu.citizenmecase.post.repository.remote
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+/**
+ * @author Emre UYSAL
+ * Network services used for requests
+ */
 interface Services {
     @GET("posts")
     suspend fun getPosts(): List<PostModel>

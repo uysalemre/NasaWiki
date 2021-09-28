@@ -4,10 +4,14 @@ import com.eu.citizenmecase.R
 import com.eu.citizenmecase.base.BaseAdapter
 import com.eu.citizenmecase.databinding.ItemCommentListBinding
 import com.eu.citizenmecase.post.repository.remote.CommentModel
-import dagger.hilt.android.scopes.FragmentScoped
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@FragmentScoped
+/**
+ * @author Emre UYSAL
+ * Adapter class for comments in detail page
+ */
+@Singleton
 class CommentListAdapter @Inject constructor() :
     BaseAdapter<CommentModel, ItemCommentListBinding>(
         R.layout.item_comment_list,

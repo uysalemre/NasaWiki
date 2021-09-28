@@ -13,9 +13,14 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * @author Emre UYSAL
+ * View model class for managing detail page content and states
+ */
 @HiltViewModel
 class PostDetailFragmentViewModel @Inject constructor(private val repository: PostRepository) :
     ViewModel() {
+
     private val _photo: MutableLiveData<NetworkResult<List<PhotoModel>>> = MutableLiveData()
     val photo: LiveData<NetworkResult<List<PhotoModel>>> get() = _photo
 
@@ -35,35 +40,31 @@ class PostDetailFragmentViewModel @Inject constructor(private val repository: Po
     val isCommentExists: LiveData<Boolean> get() = _isCommentExists
 
 
-    fun fetchPhoto(albumId: Long) {
-        viewModelScope.launch {
-            repository.getPhoto(albumId).collect {
-                _photo.postValue(it)
-            }
+    fun fetchPhoto(albumId: Long) = viewModelScope.launch {
+        repository.getPhoto(albumId).collect {
+            _photo.postValue(it)
         }
     }
 
-    fun fetchComments(postId: Long) {
-        viewModelScope.launch {
-            repository.getComments(postId).collect {
-                _comment.postValue(it)
-            }
+    fun fetchComments(postId: Long) = viewModelScope.launch {
+        repository.getComments(postId).collect {
+            _comment.postValue(it)
         }
     }
 
-    fun setTitle(title: String) {
+    fun setTitle(title: String) = viewModelScope.launch {
         _title.value = title
     }
 
-    fun setImageUrl(imageUrl: String) {
+    fun setImageUrl(imageUrl: String) = viewModelScope.launch {
         _imageUrl.value = imageUrl
     }
 
-    fun setBody(body: String) {
+    fun setBody(body: String) = viewModelScope.launch {
         _body.value = body
     }
 
-    fun setIsCommentExists(isExists: Boolean) {
+    fun setIsCommentExists(isExists: Boolean) = viewModelScope.launch {
         _isCommentExists.value = isExists
     }
 }
