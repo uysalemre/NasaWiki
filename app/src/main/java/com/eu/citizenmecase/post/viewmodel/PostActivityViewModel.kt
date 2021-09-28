@@ -1,4 +1,4 @@
-package com.eu.citizenmecase
+package com.eu.citizenmecase.post.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import javax.inject.Inject
  * Main activity view model for handling states in it
  */
 @HiltViewModel
-class MainActivityViewModel @Inject constructor() : ViewModel() {
+class PostActivityViewModel @Inject constructor() : ViewModel() {
     private val _isLoadingVisible: MutableLiveData<Boolean> = MutableLiveData()
     val isLoadingVisible: LiveData<Boolean> get() = _isLoadingVisible
 

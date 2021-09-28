@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19722222222222222" />
+        <entry key="app/src/main/res/layout/bottom_sheet_comments.xml" value="0.19722222222222222" />
+        <entry key="app/src/main/res/layout/fragment_intro_start.xml" value="0.22397994985572173" />
+        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/fragment_post_detail.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/item_empty.xml" value="0.1640625" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

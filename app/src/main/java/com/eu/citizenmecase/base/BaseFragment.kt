@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.eu.citizenmecase.MainActivity
+import com.eu.citizenmecase.post.view.PostActivity
 
 /**
  * @author Emre UYSAL
@@ -20,7 +20,7 @@ abstract class BaseFragment<db : ViewDataBinding>(@LayoutRes val layoutId: Int) 
     private var _binding: db? = null
     protected val binding get() = _binding!!
     protected val navController by lazy { findNavController() }
-    private val currentActivity by lazy { requireActivity() as MainActivity }
+    private val currentActivity by lazy { requireActivity() as PostActivity }
 
     override fun onCreateView(
         inflater: LayoutInflater,

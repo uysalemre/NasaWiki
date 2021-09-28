@@ -12,7 +12,7 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.CitizenMeCase">
         <activity
-            android:name=".MainActivity"
+            android:name=".post.view.PostActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -21,5 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".intro.AppIntroductionActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>

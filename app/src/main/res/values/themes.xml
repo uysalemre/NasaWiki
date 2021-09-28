@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.CitizenMeCase" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/background_light</item>
+        <item name="colorPrimary">@color/drag_light</item>
     </style>
 
     <style name="TitleText" parent="Widget.AppCompat.TextView">

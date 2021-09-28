@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.eu.citizenmecase.MainActivityViewModel" />
+            type="com.eu.citizenmecase.post.viewmodel.PostActivityViewModel" />
 
         <import type="android.view.View" />
 
@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".post.view.PostActivity">
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcvNavHostFragment"

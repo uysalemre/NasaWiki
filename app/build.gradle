@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.eu.citizenmecase"
         minSdk 23
-        targetSdk 31
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -46,6 +46,8 @@ dependencies {
     def nav_version = "2.3.5"
     def room_version = "2.4.0-alpha04"
     def hilt_version = "2.38.1"
+    def arch_version = "2.3.1"
+    def retrofit_version = "2.9.0"
 
     // kotlin
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -62,8 +64,8 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
     // coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
@@ -76,8 +78,10 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
     // arch
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
+    // app introduction
+    implementation "com.github.AppIntro:AppIntro:6.1.0"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

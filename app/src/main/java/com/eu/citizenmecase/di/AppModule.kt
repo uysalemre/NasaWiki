@@ -61,4 +61,9 @@ object AppModule {
     @Provides
     fun providesAppDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, AppDb::class.java, "case_app_db").build()
+
+    @Singleton
+    @Provides
+    fun provideSharedPref(@ApplicationContext context: Context) =
+        context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE)
 }
