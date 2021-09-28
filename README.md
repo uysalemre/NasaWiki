@@ -1,4 +1,5 @@
-## NasaWiki App
+## NasaWiki App 
+![ic_launcher](https://user-images.githubusercontent.com/32219894/135179662-dde97b36-0cd4-4c09-aef9-3b884b04a97c.png)
 
 ### What is NasaWiki ? 
 
