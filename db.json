@@ -106,7 +106,21 @@
       "name": "Leonardo Da VINCI",
       "email": "temp@mail.com",
       "body": "A picture of success. Nice boys 💪🏻"
-    }
+    },
+    {
+      "postId": 1,
+      "id": 7,
+      "name": "New Account",
+      "email": "temp@mail.com",
+      "body": "Its crazy 😎"
+    },
+    {
+      "postId": 1,
+      "id": 8,
+      "name": "Anonymous",
+      "email": "temp@mail.com",
+      "body": "Oh my god ......😎"
+    },
   ],
   "photos": [
     {
