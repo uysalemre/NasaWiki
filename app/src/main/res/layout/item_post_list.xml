@@ -14,7 +14,7 @@
             type="String" />
 
         <variable
-            name="body"
+            name="summary"
             type="String" />
 
     </data>
@@ -22,7 +22,8 @@
     <com.google.android.material.card.MaterialCardView
         style="@style/Card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -57,11 +58,11 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:text="@{body}"
+                android:text="@{summary}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                tools:text="@string/sample_long_text" />
+                tools:text="@tools:sample/lorem/random" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -5,113 +5,128 @@
 
     <data>
 
-        <import type="com.eu.citizenmecase.utils.ext.ExtensionsKt" />
-
         <import type="android.text.TextUtils" />
 
         <import type="android.view.View" />
 
-        <variable
-            name="titleInfo"
-            type="String" />
+        <import type="java.util.List" />
 
         <variable
-            name="bodyInfo"
-            type="String" />
+            name="detailInfo"
+            type="com.eu.nasawiki.post.repository.remote.PhotoModel" />
 
         <variable
-            name="isCommentExists"
-            type="Boolean" />
+            name="viewModel"
+            type="com.eu.nasawiki.post.viewmodel.PostDetailFragmentViewModel" />
 
-        <variable
-            name="adapter"
-            type="com.eu.citizenmecase.post.view.adapter.CommentListAdapter" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvBottomSheetRoot"
         style="@style/Card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="124dp"
+        app:behavior_peekHeight="136dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBottomSheet"
+            style="@style/ConstraintLayoutStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@{ExtensionsKt.isDarkTheme(context) ? @color/card_bottom_sheet_dark : @color/card_bottom_sheet_light}">
+            android:layout_height="match_parent">
 
             <View
                 android:id="@+id/viewDragBottomSheet"
+                style="@style/DragViewStyle"
                 android:layout_width="36dp"
                 android:layout_height="4dp"
                 android:layout_marginTop="12dp"
-                android:background="@{ExtensionsKt.isDarkTheme(context) ? @color/drag_dark : @color/drag_light}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvPageTitle"
-                style="@style/TitleText"
-                android:layout_width="0dp"
-                android:maxLines="2"
-                android:layout_margin="8dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@{titleInfo}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/viewDragBottomSheet"
-                tools:text="Page Title" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvPageBody"
-                style="@style/Card"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPageTitle">
-
-                <TextView
-                    android:id="@+id/tvPageBody"
-                    style="@style/BodyText"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@{bodyInfo}"
-                    android:visibility="@{TextUtils.isEmpty(bodyInfo) ? View.GONE : View.VISIBLE, default = visible}"
-                    tools:text="@string/sample_long_text" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <TextView
-                android:id="@+id/tvCommentsTitle"
-                style="@style/TitleText"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="@string/comments"
-                android:visibility="@{isCommentExists ? View.VISIBLE : View.GONE, default = gone}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cvPageBody" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvComments"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nsvBottomSheet"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_margin="4dp"
-                android:visibility="@{isCommentExists ? View.VISIBLE : View.GONE, default = gone}"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fillViewport="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCommentsTitle"
-                app:setLinearRvAdapter="@{adapter}"
-                tools:listitem="@layout/item_comment_list" />
+                app:layout_constraintTop_toBottomOf="@id/viewDragBottomSheet">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clBottomSheetInNestedScroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvPageTitle"
+                        style="@style/TitleText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:maxLines="2"
+                        android:text="@{detailInfo.title}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Page Title" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cvPageBody"
+                        style="@style/Card"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPageTitle">
+
+                        <TextView
+                            android:id="@+id/tvPageBody"
+                            style="@style/BodyText"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@{detailInfo.body}"
+                            tools:text="@tools:sample/lorem/random" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <TextView
+                        android:id="@+id/tvCommentsTitle"
+                        style="@style/TitleText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:text="@string/comments"
+                        android:visibility="@{viewModel.comment.size > 0 ? View.VISIBLE : View.GONE, default = gone}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cvPageBody" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvComments"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp"
+                        app:adapterVm="@{viewModel}"
+                        app:data="@{viewModel.comment}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCommentsTitle"
+                        tools:listitem="@layout/item_comment_list" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
 </layout>

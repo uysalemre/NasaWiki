@@ -6,22 +6,17 @@
     <data>
 
         <variable
-            name="viewmodel"
-            type="com.eu.citizenmecase.post.viewmodel.PostListFragmentViewModel" />
-
-        <variable
-            name="rvAdapter"
-            type="com.eu.citizenmecase.post.view.adapter.PostListAdapter" />
+            name="viewModel"
+            type="com.eu.nasawiki.post.viewmodel.PostListFragmentViewModel" />
 
         <import type="android.view.View" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/srlRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:setRefreshStatus="@{viewmodel.isRefreshing}"
-        app:onRefresh="@{()->viewmodel.swipeAndRefresh()}">
+        app:onRefresh="@{viewModel}"
+        app:setRefreshStatus="@{viewModel.isRefreshing}">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,24 +26,14 @@
                 android:id="@+id/rvPhotos"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:visibility="@{viewmodel.isItemExists ? View.VISIBLE : View.GONE, default = visible}"
-                app:adapter="@{rvAdapter}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:spanCount="@{2}"
+                app:adapterVm="@{viewModel}"
+                app:setSpanCount="@{viewModel.spanCount}"
+                app:data="@{viewModel.postsData}"
                 tools:listitem="@layout/item_post_list" />
-
-            <include
-                layout="@layout/item_empty"
-                android:visibility="@{viewmodel.isItemExists ? View.GONE : View.VISIBLE, default = gone}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:pageName="@{`posts`}" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

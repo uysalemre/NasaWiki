@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19722222222222222" />
-        <entry key="app/src/main/res/layout/bottom_sheet_comments.xml" value="0.19722222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.42780748663101603" />
+        <entry key="app/src/main/res/layout/bottom_sheet_comments.xml" value="0.10306340536689622" />
         <entry key="app/src/main/res/layout/fragment_intro_start.xml" value="0.22397994985572173" />
-        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/fragment_post.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_post_detail.xml" value="0.1640625" />
-        <entry key="app/src/main/res/layout/item_empty.xml" value="0.1640625" />
+        <entry key="app/src/main/res/layout/item_comment_list.xml" value="0.17685185185185184" />
+        <entry key="app/src/main/res/layout/item_empty.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_post_list.xml" value="0.26773055218939257" />
+        <entry key="app/src/main/res/layout/new_comment_bottom_sheet.xml" value="0.21357346211019707" />
+        <entry key="app/src/main/res/layout/useroptions_bottom_sheet_dialog.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.eu.citizenmecase.post.viewmodel.PostActivityViewModel" />
+            type="com.eu.nasawiki.post.viewmodel.PostActivityViewModel" />
 
         <import type="android.view.View" />
 
@@ -31,27 +31,29 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/nav_graph" />
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/cpiLoading"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
             android:visibility="@{viewModel.isLoadingVisible ? View.VISIBLE : View.GONE, default = gone}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvLoadingText"
-            style="@style/TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading"
-            android:visibility="@{viewModel.isLoadingVisible ? View.VISIBLE : View.GONE, default = gone}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cpiLoading" />
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/cpiLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true" />
 
+            <TextView
+                android:id="@+id/tvLoadingText"
+                style="@style/TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/loading" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

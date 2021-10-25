@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/photoListFragment"
-        android:name="com.eu.citizenmecase.post.view.PostListFragment"
+        android:name="com.eu.nasawiki.post.view.PostListFragment"
         android:label="Posts"
         tools:layout="@layout/fragment_post">
         <action
@@ -21,22 +21,49 @@
 
     <fragment
         android:id="@+id/photoDetailFragment"
-        android:name="com.eu.citizenmecase.post.view.PostDetailFragment"
+        android:name="com.eu.nasawiki.post.view.PostDetailFragment"
         android:label="Post Detail"
         tools:layout="@layout/fragment_post_detail">
         <action
             android:id="@+id/action_photoDetailFragment_to_photoListFragment"
             app:destination="@id/photoListFragment"
             app:popUpTo="@id/photoListFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
         <argument
             android:name="postId"
             android:defaultValue="-1L"
             app:argType="long" />
+    </fragment>
+    <dialog
+        android:id="@+id/addNewCommentFragment"
+        android:name="com.eu.nasawiki.comment.view.AddNewCommentFragment"
+        android:label="AddNewCommentFragment"
+        tools:layout="@layout/new_comment_bottom_sheet" />
+    <dialog
+        android:id="@+id/userOptionsBottomSheetDialog"
+        android:name="com.eu.nasawiki.bottomsheetdialog.UserOptionsBottomSheetDialog"
+        android:label="UserOptionsBottomSheetDialog"
+        tools:layout="@layout/useroptions_bottom_sheet_dialog">
         <argument
-            android:name="body"
+            android:name="headerText"
             android:defaultValue=""
             app:argType="string" />
-    </fragment>
+        <argument
+            android:name="messageText"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="positiveBtText"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <argument
+            android:name="negativeBtText"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </dialog>
+
 
 </navigation>

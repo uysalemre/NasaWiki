@@ -20,6 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
+            android:maxLines="2"
             android:text="@{@string/err_no_items(pageName)}"
             app:drawableStartCompat="@android:drawable/ic_menu_search"
             app:drawableTint="@color/background_dark"
@@ -29,5 +30,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="There are no posts in here." />
 
+        <Button
+            android:id="@+id/btTryAgainEmpty"
+            style="@style/CommentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/err_retry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNoItemMessage" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
