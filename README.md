@@ -3,7 +3,7 @@
 
 ### What is NasaWiki ? 
 
-This is a fan application that shows data from NASA Image Gallery using [My Json Server](https://my-json-server.typicode.com/uysalemre/CitizenMeCaseApp/) as a simulated backend.
+This is a fan application with Android Best Practices that shows data from NASA Image Gallery using [My Json Server](https://my-json-server.typicode.com/uysalemre/NasaWiki/) as a simulated backend.
 
 ### Details
    - **Operating System** : Android
