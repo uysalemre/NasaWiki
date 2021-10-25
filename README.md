@@ -16,7 +16,7 @@ This is a fan application that shows data from NASA Image Gallery using [My Json
    - **Network Operations** : [Retrofit](https://square.github.io/retrofit/)
    - **Threading** : [Coroutines Kotlin Flow](https://developer.android.com/kotlin/flow)
    - **Design** : [Material Design](https://material.io)
-   - **Extra** : [App Introduction](https://github.com/AppIntro/AppIntro) and [Storyly](https://storyly.io)
+   - **Extra** : [App Introduction](https://github.com/AppIntro/AppIntro)
 
 ### How to run ?
 
