@@ -68,9 +68,7 @@ fun setAdapter(view: RecyclerView, viewModel: Any, data: List<Any>?, postId: Lon
     data?.let {
         when (val adapter = view.adapter) {
             is PostListAdapter -> adapter.submitList(data as List<PostModel>)
-            is CommentListAdapter -> {
-                adapter.submitList(data as List<CommentModel>)
-            }
+            is CommentListAdapter -> adapter.submitList(data as List<CommentModel>)
             else -> throw IllegalArgumentException("Invalid Adapter")
         }
     }
