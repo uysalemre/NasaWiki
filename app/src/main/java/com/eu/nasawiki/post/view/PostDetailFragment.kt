@@ -41,7 +41,7 @@ class PostDetailFragment : BaseFragment<FragmentPostDetailBinding>(R.layout.frag
             })
 
             errorUnexpected.observe(viewLifecycleOwner, EventObserver {
-                showSnackBar(it, R.string.err_retry, Snackbar.LENGTH_LONG) {
+                showSnackBar(it, R.string.err_retry, Snackbar.LENGTH_INDEFINITE) {
                     fetchComments(args.postId)
                     fetchComments(args.postId)
                 }

@@ -44,7 +44,7 @@ class PostListFragment : BaseFragment<FragmentPostBinding>(R.layout.fragment_pos
             })
 
             errorUnexpected.observe(viewLifecycleOwner, EventObserver {
-                showSnackBar(it, R.string.err_retry, Snackbar.LENGTH_LONG) {
+                showSnackBar(it, R.string.err_retry, Snackbar.LENGTH_INDEFINITE) {
                     fetchPosts()
                 }
             })
