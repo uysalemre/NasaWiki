@@ -69,7 +69,7 @@
                         style="@style/TitleText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
+                        android:layout_margin="8dp"
                         android:maxLines="2"
                         android:text="@{detailInfo.title}"
                         app:layout_constraintEnd_toStartOf="@id/ivFav"
@@ -81,11 +81,13 @@
                         android:id="@+id/ivFav"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="@id/tvPageTitle"
-                        app:layout_constraintStart_toEndOf="@id/tvPageTitle"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp"
+                        android:onClick="@{()->viewModel.updateFavoriteStatus(detailInfo.isFav ? false : true)}"
+                        android:src="@{detailInfo.isFav ? @drawable/ic_fav_added : @drawable/ic_fav_not_added}"
                         app:layout_constraintBottom_toBottomOf="@id/tvPageTitle"
-                        android:src="@{detailInfo.isFav ? @drawable/ic_fav_added : @drawable/ic_fav_not_added}"/>
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvPageTitle"
+                        app:layout_constraintTop_toTopOf="@id/tvPageTitle" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/cvPageBody"
@@ -126,8 +128,8 @@
                         app:adapterVm="@{viewModel}"
                         app:data="@{viewModel.comment}"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvCommentsTitle"
                         tools:listitem="@layout/item_comment_list" />

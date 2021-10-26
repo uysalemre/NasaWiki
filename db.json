@@ -4,50 +4,43 @@
       "id": 1,
       "title": "Unique Views of the Galaxy",
       "summary": "Sweeping panorama of the galactic center region.",
-      "url": "https://images-assets.nasa.gov/image/PIA12348/PIA12348~thumb.jpg",
-      "isFav" : false
+      "url": "https://images-assets.nasa.gov/image/PIA12348/PIA12348~thumb.jpg"
     },
     {
       "id": 2,
       "title": "Lucy Centaur Stage",
       "summary": "Kennedy Space Center is managing the launch.",
-      "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0085/KSC-20210916-PH-KLS01_0085~thumb.jpg",
-      "isFav" : true
+      "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0085/KSC-20210916-PH-KLS01_0085~thumb.jpg"
     },
     {
       "id": 3,
       "title": "Artemis Space Launch System",
       "summary": "Vehicle Assembly Building at NASA’s Kennedy Space Center in Florida.",
-      "url": "https://images-assets.nasa.gov/image/KSC-20210917-PH-FMX01_0113/KSC-20210917-PH-FMX01_0113~thumb.jpg",
-      "isFav" : false
+      "url": "https://images-assets.nasa.gov/image/KSC-20210917-PH-FMX01_0113/KSC-20210917-PH-FMX01_0113~thumb.jpg"
     },
     {
       "id": 4,
       "title": "Expedition 65 Flight",
       "summary": "Mark Vande Hei of NASA and Oleg Novitskiy and Pyotr Dubrov, both from Roscosmos.",
-      "url": "https://images-assets.nasa.gov/image/iss065e398731/iss065e398731~thumb.jpg",
-      "isFav" : true
+      "url": "https://images-assets.nasa.gov/image/iss065e398731/iss065e398731~thumb.jpg"
     },
     {
       "id": 5,
       "title": "Soyuz MS-18 Suit",
       "summary": "Mark Vande Hei tries suit he will wear inside the Soyuz MS-18.",
-      "url": "https://images-assets.nasa.gov/image/iss065e398685/iss065e398685~thumb.jpg",
-      "isFav" : false
+      "url": "https://images-assets.nasa.gov/image/iss065e398685/iss065e398685~thumb.jpg"
     },
     {
       "id": 6,
       "title": "Sign of Shane",
       "summary": "NASA astronaut Shane Kimbrough signs his name around the Expedition 65 mission.",
-      "url": "https://images-assets.nasa.gov/image/iss065e389550/iss065e389550~thumb.jpg",
-      "isFav" : false
+      "url": "https://images-assets.nasa.gov/image/iss065e389550/iss065e389550~thumb.jpg"
     },
     {
       "id": 7,
       "title": "Lucy Centaur Stage",
       "summary": "ULA Centaur stage for Lucy mission moves along the road to Space Launch Complex.",
-      "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0029/KSC-20210916-PH-KLS01_0029~thumb.jpg",
-      "isFav" : false
+      "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0029/KSC-20210916-PH-KLS01_0029~thumb.jpg"
     }
   ],
   "comments": [
@@ -101,7 +94,7 @@
       "title": "Unique Views of the Galaxy",
       "body": "This sweeping panorama is one of the sharpest infrared pictures ever made of the galactic center region. X-rays detected by Chandra expose a wealth of exotic objects and high-energy features [Figure 3 (bottom frame of poster)]. In this image, pink represents lower energy X-rays and blue indicates higher energy. Hundreds of small dots show emission from material around black holes and other dense stellar objects. A supermassive black hole -- some four million times more massive than the Sun -- resides within the bright region in the lower right. The diffuse X-ray light comes from gas heated to millions of degrees by outflows from the supermassive black hole, winds from giant stars, and stellar explosions. This central region is the most energetic place in our galaxy. This sweeping panorama is one of the sharpest infrared pictures ever made of the galactic center region. X-rays detected by Chandra expose a wealth of exotic objects and high-energy features.",
       "url": "https://images-assets.nasa.gov/image/PIA12348/PIA12348~medium.jpg",
-      "isFav" : false
+      "isFav": false
     },
     {
       "albumId": 2,
@@ -109,7 +102,7 @@
       "title": "Lucy Centaur Stage",
       "body": "NASA’s Launch Services Program based at Kennedy Space Center is managing the launch. Over its 12-year primary mission, Lucy will explore a record-breaking number of asteroids, flying by one asteroid in the solar system’s main belt and seven Trojan asteroids. Additionally, Lucy’s path will circle back to Earth three times for gravity assists, making it the first spacecraft ever to return to the vicinity of Earth from the outer solar system.",
       "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0085/KSC-20210916-PH-KLS01_0085~medium.jpg",
-      "isFav" : true
+      "isFav": true
     },
     {
       "albumId": 3,
@@ -117,15 +110,15 @@
       "title": "Artemis Space Launch System",
       "body": "Inside High Bay 3 of the Vehicle Assembly Building at NASA’s Kennedy Space Center in Florida, the work platforms have been retracted from around the Artemis I Space Launch System on Sept. 20, 2021. All 10 levels of platforms were extended and retracted as part of an umbilical test. During the test, several umbilical arms on the mobile launcher were extended to connect to the SLS rocket. ",
       "url": "https://images-assets.nasa.gov/image/KSC-20210917-PH-FMX01_0113/KSC-20210917-PH-FMX01_0113~medium.jpg",
-      "isFav" : false
-   },
+      "isFav": false
+    },
     {
       "albumId": 4,
       "id": 4,
       "title": "Expedition 65 Flight",
       "body": "From left, are Expedition 65 Flight Engineers Mark Vande Hei of NASA and Oleg Novitskiy and Pyotr Dubrov, both from Roscosmos. They are trying on the Sokol launch and entry suits they will wear inside the Soyuz MS-18 crew ship when it undocks from the Rassvet module and redocks to the Nauka multipurpose module.",
       "url": "https://images-assets.nasa.gov/image/iss065e398731/iss065e398731~medium.jpg",
-      "isFav" : true
+      "isFav": true
     },
     {
       "albumId": 5,
@@ -133,7 +126,7 @@
       "title": "Soyuz MS-18 Suit",
       "body": "NASA astronaut and Expedition 65 Flight Engineer Mark Vande Hei tries on the Sokol launch and entry suit he will wear inside the Soyuz MS-18 crew ship when it undocks from the Rassvet module and redocks to the Nauka multipurpose module.",
       "url": "https://images-assets.nasa.gov/image/iss065e398685/iss065e398685~medium.jpg",
-      "isFav" : false
+      "isFav": false
     },
     {
       "albumId": 6,
@@ -141,7 +134,7 @@
       "title": "Sign of Shane",
       "body": "NASA astronaut and Expedition 65 Flight Engineer Shane Kimbrough signs his name around the Expedition 65 mission insignia sticker affixed to the vestibule in between the Unity module and the Quest airlock.",
       "url": "https://images-assets.nasa.gov/image/iss065e389550/iss065e389550~medium.jpg",
-      "isFav" : false
+      "isFav": false
     },
     {
       "albumId": 7,
@@ -149,7 +142,7 @@
       "title": "Lucy Centaur Stage",
       "body": "The United Launch Alliance (ULA) Centaur stage for NASA’s Lucy mission moves along the road to Space Launch Complex 41 at Cape Canaveral Space Force Station in Florida on Sept. 16, 2021. Lucy is scheduled to launch no earlier than Saturday, Oct. 16, on a ULA Atlas V 401 rocket from Pad 41. NASA’s Launch Services Program based at Kennedy Space Center is managing the launch. Over its 12-year primary mission, Lucy will explore a record-breaking number of asteroids, flying by one asteroid in the solar system’s main belt and seven Trojan asteroids. Additionally, Lucy’s path will circle back to Earth three times for gravity assists.",
       "url": "https://images-assets.nasa.gov/image/KSC-20210916-PH-KLS01_0029/KSC-20210916-PH-KLS01_0029~medium.jpg",
-      "isFav" : false
+      "isFav": false
     }
   ]
 }

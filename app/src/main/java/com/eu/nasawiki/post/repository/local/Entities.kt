@@ -12,7 +12,6 @@ data class PostEntity(
     val title: String,
     val summary: String,
     val url: String,
-    val isFav: Boolean,
     @PrimaryKey val id: Long
 )
 

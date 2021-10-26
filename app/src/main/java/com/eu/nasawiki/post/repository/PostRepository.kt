@@ -1,5 +1,6 @@
 package com.eu.nasawiki.post.repository
 
+import com.eu.nasawiki.post.repository.remote.PhotoModel
 import com.eu.nasawiki.post.repository.remote.Services
 import com.eu.nasawiki.utils.db.AppDb
 import com.eu.nasawiki.utils.ext.convertEntityModel
@@ -34,6 +35,12 @@ class PostRepository @Inject constructor(private val services: Services, private
         { db.getDao().getAllComments(id).convertToEntityModelList() },
         { data -> db.getDao().insertComments(data.convertToEntityModelList()) },
         { safeApiCall { services.getComments(id) } }
+    )
+
+    suspend fun updateIsFav(id: Long, photoModel: PhotoModel) = getRequestOrCacheResult(
+        { db.getDao().getPhoto(id)?.convertEntityModel() },
+        { data -> db.getDao().insertPhoto(data.convertEntityModel()) },
+        { safeApiCall { services.updateIsFav(id, photoModel) } }
     )
 
     private fun <T> getRequestOrCacheResult(

@@ -58,4 +58,31 @@ class PostDetailFragmentViewModel @Inject constructor(private val repository: Po
             }
         }
     }
+
+    fun updateFavoriteStatus(isFav: Boolean) = viewModelScope.launch {
+        val currentPhoto = _photo.value!!
+        repository.updateIsFav(
+            currentPhoto.id,
+            PhotoModel(
+                currentPhoto.albumId,
+                currentPhoto.title,
+                currentPhoto.body,
+                currentPhoto.url,
+                isFav,
+                currentPhoto.id
+            )
+        ).collect {
+            when (it) {
+                is NetworkResult.OnLoading -> setIsLoading(true)
+                is NetworkResult.OnUnexpected -> {
+                    setIsLoading(false)
+                    setError(it.messageId)
+                }
+                is NetworkResult.OnSuccess -> {
+                    setIsLoading(false)
+                    _photo.value = it.data
+                }
+            }
+        }
+    }
 }

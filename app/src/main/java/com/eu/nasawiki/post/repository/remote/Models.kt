@@ -13,7 +13,6 @@ data class PostModel(
     val title: String,
     val summary: String,
     val url: String,
-    val isFav: Boolean,
     override val id: Long
 ) : Model
 

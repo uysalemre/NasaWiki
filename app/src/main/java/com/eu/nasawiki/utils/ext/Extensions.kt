@@ -14,13 +14,13 @@ import com.eu.nasawiki.post.repository.remote.PostModel
 inline fun <reified T, R> List<T>.convertToEntityModelList(): List<R> = map {
     when (it) {
         is PostModel -> {
-            PostEntity(it.title, it.summary, it.url, it.isFav, it.id)
+            PostEntity(it.title, it.summary, it.url, it.id)
         }
         is CommentModel -> {
             CommentEntity(it.postId, it.name, it.email, it.body, it.id)
         }
         is PostEntity -> {
-            PostModel(it.title, it.summary, it.url, it.isFav, it.id)
+            PostModel(it.title, it.summary, it.url, it.id)
         }
         is CommentEntity -> {
             CommentModel(it.postId, it.name, it.email, it.body, it.id)

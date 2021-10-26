@@ -1,8 +1,6 @@
 package com.eu.nasawiki.post.repository.remote
 
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * @author Emre UYSAL
@@ -17,4 +15,7 @@ interface Services {
 
     @GET("photos/{id}")
     suspend fun getPhoto(@Path("id") id: Long): PhotoModel
+
+    @PATCH("photos/{id}")
+    suspend fun updateIsFav(@Path("id") id: Long, @Body model: PhotoModel): PhotoModel
 }
