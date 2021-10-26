@@ -21,3 +21,11 @@ This is a fan application with Android Best Practices that shows data from NASA 
 ### How to run ?
 
 Please download the code and run in Android Studio.
+
+### ScreenShots
+
+Dark Mode Off             |  Dark Mode On
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/32219894/138962566-2cb3e740-87c8-4110-a5af-1b8946c1cbc3.png" width="200" height="400" /> | <img src="https://user-images.githubusercontent.com/32219894/138962681-0508d0e4-4cdb-47de-ab39-2d622d5863b9.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/32219894/138962582-21603fbb-9051-45ec-87b8-ea9df290d339.png" width="200" height="400" />| <img src="https://user-images.githubusercontent.com/32219894/138962720-adb19d86-1bab-4ff0-8d76-30f561d0ef9b.png" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/32219894/138962606-6e49c55b-61cd-4beb-bf7b-588fb48700aa.png" width="200" height="400" /> | <img src="https://user-images.githubusercontent.com/32219894/138962792-525437d0-05c7-4310-9b30-c9899c7ca533.png" width="200" height="400" />
