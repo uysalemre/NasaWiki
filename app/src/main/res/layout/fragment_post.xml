@@ -33,6 +33,7 @@
                 app:adapterVm="@{viewModel}"
                 app:setSpanCount="@{viewModel.spanCount}"
                 app:data="@{viewModel.postsData}"
+                android:padding="4dp"
                 tools:listitem="@layout/item_post_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

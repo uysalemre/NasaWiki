@@ -13,6 +13,7 @@ data class PostModel(
     val title: String,
     val summary: String,
     val url: String,
+    val isFav: Boolean,
     override val id: Long
 ) : Model
 
@@ -29,5 +30,6 @@ data class PhotoModel(
     val title: String,
     val body: String,
     val url: String,
+    val isFav: Boolean,
     override val id: Long
 ) : Model

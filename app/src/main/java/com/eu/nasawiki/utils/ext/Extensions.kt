@@ -14,13 +14,13 @@ import com.eu.nasawiki.post.repository.remote.PostModel
 inline fun <reified T, R> List<T>.convertToEntityModelList(): List<R> = map {
     when (it) {
         is PostModel -> {
-            PostEntity(it.title, it.summary, it.url, it.id)
+            PostEntity(it.title, it.summary, it.url, it.isFav, it.id)
         }
         is CommentModel -> {
             CommentEntity(it.postId, it.name, it.email, it.body, it.id)
         }
         is PostEntity -> {
-            PostModel(it.title, it.summary, it.url, it.id)
+            PostModel(it.title, it.summary, it.url, it.isFav, it.id)
         }
         is CommentEntity -> {
             CommentModel(it.postId, it.name, it.email, it.body, it.id)
@@ -31,10 +31,10 @@ inline fun <reified T, R> List<T>.convertToEntityModelList(): List<R> = map {
 
 inline fun <reified T, R> T.convertEntityModel(): R = when (this) {
     is PhotoEntity -> {
-        PhotoModel(this.albumId, this.title, this.body, this.url, this.id)
+        PhotoModel(this.albumId, this.title, this.body, this.url, this.isFav, this.id)
     }
     is PhotoModel -> {
-        PhotoEntity(this.albumId, this.title, this.body, this.url, this.id)
+        PhotoEntity(this.albumId, this.title, this.body, this.url, this.isFav, this.id)
     }
     else -> throw IllegalArgumentException("No Model Like That")
 } as R

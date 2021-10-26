@@ -22,6 +22,7 @@ class PostListAdapter(
                 imageUrl = item.url
                 title = item.title
                 summary = item.summary
+                isFav = item.isFav
                 root.setOnClickListener {
                     onClickItem(item.id)
                 }

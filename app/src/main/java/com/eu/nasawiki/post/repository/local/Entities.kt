@@ -12,6 +12,7 @@ data class PostEntity(
     val title: String,
     val summary: String,
     val url: String,
+    val isFav: Boolean,
     @PrimaryKey val id: Long
 )
 
@@ -30,5 +31,6 @@ data class PhotoEntity(
     val title: String,
     val body: String,
     val url: String,
+    val isFav: Boolean,
     @PrimaryKey val id: Long
 )
